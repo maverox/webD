@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>HTML 5 variant</legend>
+      <form action="">
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dobpicker" id="dob" /><br />
+        <label for="email">email</label>
+        <input type="email" name="" id="email" />
+        <br />
+        <label for="dishes">select the dishes</label>
+        <select multiple name="dishes" id="dishes">
+          <option value="maggi">maggi</option>
+          <br />
+          <option value="iceCream">ice cream</option>
+        </select>
+        <br />
+        <textarea
+          name="textfield"
+          id="textArea"
+          cols="30"
+          rows="10"
+          placeholder="enter text here..."
+        ></textarea>
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>legacy HTML</legend>
+      <label for="textField">text field</label>
+      <input name="textfield" id="textfield" />
+      <br />
+      <label for="radio1">option 1</label>
+      <input type="radio" name="radio" id="radio1" />
+      <label for="radio2">option 2</label>
+      <input type="radio" name="radio" id="radio2" />
+      <br />
+      <label for="ckbox1">option1</label>
+      <input type="checkbox" name="option" id="ckbox1" /><br />
+      <label
+        for="ckbox2"
+      >option 2</label
+      ><input type="checkbox" name="option" id="ckbox2" /><br /><label
+        for="ckbox3"
+      >option3</label
+      ><input type="checkbox" name="option" id="ckbox3" /><br />
+      <input type="file" name="fileSelect" id="fileselect"><br>
+      <input style="size: 14px 14px;" type="image" src="https://th.bing.com/th?id=OIP.TWlb-KwJoXM0tNSErL1BkgHaHt&w=245&h=254&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="">
+      <input type="password" name="passwordField" id="pwField" placeholder="enter your password"><br>
+      <input type="date" name="datePicker" id="datePicker">
+    </fieldset>
+  </body>
+</html>
