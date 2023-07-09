@@ -1,0 +1,14 @@
+.list-group-item:hover {
+    transition : background 0.25s;
+    transition : color 0.85s;
+    background-color: #d9534f;
+    color: #f7f7f7;
+    cursor: pointer;
+    content-visibility: none;
+}
+.btn[type='submit']:hover{
+    transition : background 0.60s;
+    transition : color 0.85s;
+    background-color: #393a54;
+    color: #e9f983;
+}
