@@ -52,13 +52,13 @@ function addItem(e) {
   li.className = "list-group-item list-group-item-info px-3";
 
   //creating a textNode;
-  let text = document.createTextNode(newItem);
+  if (!(newItem === "")){let text = document.createTextNode(newItem);
   //appending node child in li
   li.appendChild(text);
   // appending the above element as child of ul
   items.appendChild(li);
   //to clear the entry after submission
-  form.reset();
+  form.reset();}
 }
 
 //deleting function
