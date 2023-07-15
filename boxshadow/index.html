@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* declare custom variables */
+      :root {
+        --primary-color: #00ced1;
+        --accent-color: #cc3333;
+      }
+      .container {
+        background-color: var(--primary-color);
+        height: 100vh;
+        border: solid 3px #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        background-color: var(--accent-color);
+        height: 200px;
+        width: 300px;
+        border: solid 3px #000;
+        border-radius: 20px;
+        border-top-left-radius: 0;
+        box-sizing: border-box;
+        box-shadow: 10px 10px rgba(41, 34, 94, 0.7);
+        font: 1em bold "Courier New" ;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        justify-self: center;
+        text-shadow: 0.2em 0.2em  0.5em rgba(94, 34, 34, 0.5);
+      }
+      .box:hover {
+        box-shadow: 20px 20px 50px 30px ;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis tempora deserunt fuga voluptatem eum dolore similique excepturi quas adipisci cumque, eaque, ipsum aspernatur dolorum quisquam provident architecto dignissimos iste. A.
+      </div>
+    </div>
+  </body>
+  <script>
+    let box = document.querySelector(".box");
+    box.addEventListener("mousemove", (e) => {
+      let changeY = 0.25 * e.clientY;
+      let changeX = 0.25 * e.clientX;
+
+      box.style.boxShadow =
+        changeX + "px " + changeY + "px 30px rgba(94, 34, 34, 0.7)";
+    });
+  </script>
+</html>
