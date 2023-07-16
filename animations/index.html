@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animations</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        box-sizing: border-box;
+        border: solid 2px black;
+        background: #ffb67e;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        width: 250px;
+        height: 250px;
+        background-color: crimson;
+        align-self: center;
+        border-radius: 30px;
+        box-shadow: 20px 10px 20px 10px rgb(57, 5, 15, 0.7);animation-name: morph;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-delay: 200ms;
+        animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        /* animation-direction: alternate; */
+        animation-fill-mode: forwards;/*to tell where to stop or whats the last frame*/
+        animation-play-state: running;
+    }
+      .box:hover {
+        from{
+            animation-play-state: running;
+        }
+        to {
+            animation-play-state: paused;
+        }
+      }
+      @keyframes morph {
+        from {
+          box-shadow: 20px 10px 20px 10px rgb(57, 5, 15, 0.7);
+          background-color: #f7ec26;
+          flex-basis: 250px;
+        }
+        to {
+          box-shadow: -40px 10px 20px 10px rgb(57, 5, 15, 0.7);
+          background-color: #fcff5d4a;
+          flex-basis: 500px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+    </div>
+  </body>
+</html>
