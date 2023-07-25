@@ -1,10 +1,65 @@
+:root{
+    --primary: #2ECC71;
+    --secondary: #34495E;
+    --accent: #51a7f7;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #b5d0eb;
+    overflow: hidden;
+    
+} 
+.header {
+    width: 100vw;
+    padding: 2vh 1vh 2vh 1vh;
+    margin: 0;
+    background-color: var(--accent);
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.5em;
+    color: #b5ffe3;
+    border-bottom-left-radius: 5vw;
+    border-bottom-right-radius: 5vw;
+    text-shadow: #393a54 1vh 1vh 3vh;
+    box-shadow: 1vh 1vh 3vh 2.5vh #7071a3;
+}
+
+#search {
+    height: 1.5em;
+    padding: 6vh;
+    align-self: center;
+    border: 1vh solid #4045ce;
+    flex-basis: 60vw;
+    box-shadow: 5px 3px 20px #393a54;
+    font-family: fantasy;
+    font-size: large;
+    background-color: #aeafd0;
+    color: #ffffff;
+}
+.list-group-item {
+    transition : all 0.5s ease-in;
+    height: 1.5em;
+    padding: 3vh;
+    align-self: center;
+    border: 0.5vh solid #4045ce;
+    flex-basis: 60vw;
+    font-family: fantasy;
+    font-size: large;
+    background-color: #aeafd0;
+    color: #544fff;
+    border-radius: 2vh;;
+}
 .list-group-item:hover {
-    transition : background 0.25s;
+    
     transition : color 0.85s;
     background-color: #d9534f;
     color: #f7f7f7;
     cursor: pointer;
     content-visibility: none;
+    box-shadow: 5px 3px 20px #393a54;
+    transform: scale(1.01);
 }
 .btn[type='submit']:hover{
     transition : background 0.60s;
