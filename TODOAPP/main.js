@@ -1,4 +1,4 @@
-let form = document.querySelector("#addForm");
+let form = document.querySelector("#form");
 let items = document.querySelector("#items");
 let item = document.querySelector(".list-group-item");
 let search = document.querySelector("#search");
@@ -18,7 +18,7 @@ function boot() {
     // creating a list element;
     let li = document.createElement("li");
     // giving it the same class as other ancestors
-    li.className = "list-group-item list-group-item-info px-3";
+    li.className = "list-group-item";
 
     //creating a textNode;
     let text = document.createTextNode(item);
@@ -30,12 +30,11 @@ function boot() {
 }
 
 // adding function
-
 function addItem(e) {
   e.preventDefault(); // normal submission override
 
   //get value
-  let newItem = document.querySelector("#formContent").value;
+  let newItem = document.querySelector("#addForm").value;
   // update/instantiate localStorage
   if (localStorage.getItem("localList") === null) {
     let localList = []; //creating a new list
@@ -49,16 +48,18 @@ function addItem(e) {
   //reload/reboot site
   let li = document.createElement("li");
   // giving it the same class as other ancestors
-  li.className = "list-group-item list-group-item-info px-3";
+  li.className = "list-group-item";
 
   //creating a textNode;
-  if (!(newItem === "")){let text = document.createTextNode(newItem);
-  //appending node child in li
-  li.appendChild(text);
-  // appending the above element as child of ul
-  items.appendChild(li);
-  //to clear the entry after submission
-  form.reset();}
+  if (!(newItem === "")) {
+    let text = document.createTextNode(newItem);
+    //appending node child in li
+    li.appendChild(text);
+    // appending the above element as child of ul
+    items.appendChild(li);
+    //to clear the entry after submission
+    form.reset();
+  }
 }
 
 //deleting function
