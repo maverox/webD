@@ -50,7 +50,7 @@ function App() {
                   {singleTodo.todoName}{" "}
                   <span
                     onClick={() => deleteTodo(singleTodo.todoName)}
-                    className="text-red-600 cursor-pointer cursor-pointer"
+                    className="text-red-600 cursor-pointer"
                   >
                     x
                   </span>
