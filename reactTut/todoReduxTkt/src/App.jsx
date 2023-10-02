@@ -10,7 +10,7 @@ function App() {
     <AddTodo  />
     <h2 className='text-white py-1 my-3 text-3xl'>Todos</h2>
     {todos.map(todo => (
-      <Todos  key={todo.id} todo={todo} className='text-white' />
+      <Todos key={todo.id} todo={todo} />
     ))}
     </>
   )
