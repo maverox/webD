@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-catch */
 /* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
-import conf from '../conf';
+import conf from '../conf/conf.js';
 import { Client, Databases, ID, Query, Storage } from "appwrite";
 
 export class Service {

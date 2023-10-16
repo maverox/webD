@@ -1,15 +1,15 @@
 /* eslint-disable no-useless-catch */
 import { Client, Account, ID } from "appwrite";
 
-import { appwriteProjectId, appwriteURL } from '..conf';
-
+import  conf from '../conf/conf.js';
+console.log(conf.appwriteURL, conf.appwriteProjectId);
 export class AuthService{
     client= new Client();
     account;
     constructor() {
         this.client
-            .setEndpoint(appwriteURL)
-            .setProject(appwriteProjectId);
+            .setEndpoint(conf.appwriteURL)
+            .setProject(conf.appwriteProjectId);
         this.account = new Account(this.client);
         this.account.create('uzzuboi@gmail.com', '123456', 'Uzzu Boi');
     }
