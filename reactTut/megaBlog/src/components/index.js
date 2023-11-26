@@ -10,4 +10,6 @@ import Signup from './Signup';
 import Select from './Select';
 import RTE from './RTE';
 import AuthLayout from './AuthLayout';
-export{Header, Footer, Container, Logo, Input, Button, Login, PostCard, Signup, Select, RTE, AuthLayout};
+import PostForm from './post-form/PostForm';
+import LogoutBtn from './Header/LogoutBtn';
+export{Header, Footer, Container, Logo, Input, Button, Login, PostCard, Signup, Select, RTE, AuthLayout, PostForm, LogoutBtn};
