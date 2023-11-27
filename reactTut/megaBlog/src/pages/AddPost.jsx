@@ -1,5 +1,5 @@
 
-import { PostForm, Container } from "./../components/post-form/PostForm";
+import { PostForm, Container } from "./../components";
 const AddPost = () => {
   return (
     <div className="py-8">

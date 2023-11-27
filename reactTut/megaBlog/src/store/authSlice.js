@@ -18,7 +18,7 @@ const authSlice = createSlice({
 
     }
 });
-
+// this is for dispatcher
 export const {login, logout} = authSlice.actions;
-
+//this is for configureStore
 export default authSlice.reducer;
