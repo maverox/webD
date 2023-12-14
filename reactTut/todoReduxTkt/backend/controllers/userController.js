@@ -14,7 +14,7 @@ const authUser = asyncHandler(async (req, res) => {
             email: input.email,
         },
     })
-    if (user && (await bcrypt.compare(input.password, user.password ))) {
+    if (user && (await bcrypt.compare(input.password, user.password))) {
         res.status(200).json(
             {
                 _id: user.id,
@@ -52,7 +52,7 @@ const registerUser = asyncHandler(async (req, res) => {
             name: input.name,
             email: input.email,
             password: hashPwd,
-            todos: []
+            todo: { create: [] }
         }
     })
     console.log(newUser)

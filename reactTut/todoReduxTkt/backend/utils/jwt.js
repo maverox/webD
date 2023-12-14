@@ -4,13 +4,13 @@ require('dotenv').config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // Function to sign a JWT access token
-const signAccessToken =  async (userId) => {
-    return await jwt.sign({ userId }, JWT_SECRET, {
-        expiresIn: '30d'
-    });
+const signAccessToken =   (userId) => {
+    return  jwt.sign({ userId }, JWT_SECRET);
 }
 
-const verifyAccessToken = async (token) => {
-    return await jwt.verify(token, JWT_SECRET);
+const verifyAccessToken =  (token) => {
+    return  jwt.verify(token, JWT_SECRET);
 };
+let token = signAccessToken(1);
+
 module.exports = { signAccessToken, verifyAccessToken };

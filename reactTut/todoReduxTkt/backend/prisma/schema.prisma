@@ -11,9 +11,17 @@ datasource db {
 }
 
 model User {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  name    String?
-  email   String   @unique
-  todos   String[]
-  password String 
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  name  String?
+  email String  @unique
+  todos Todo[]
+}
+
+model Todo {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  completed Boolean @default(false)
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String @db.ObjectId
 }
