@@ -1,0 +1,206 @@
+:root {
+    --gray-base: #151618;
+    --gray-tint-10: #2c2d2f;
+    --gray-tint-20: #444546;
+    --gray-tint-40: #737374;
+    --gray-tint-10: #2c2d2f;
+    --gray-tint-10: #2c2d2f;
+
+    --accent-base: #2FA2BD;
+    --accent-tint-90: #EAF6F8;
+
+    --contextual-success-base: #1FA47C;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.5;
+}
+
+body {
+    background-color: var(--gray-base);
+    color: var(--gray-base);
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    background-color: var(--accent-tint-90);
+    border-radius: 1rem;
+    padding: .5rem;
+    display: grid;
+    grid-template-columns: 25rem 1fr;
+    align-items: center;
+    min-height: 50rem;
+}
+
+.well {
+    background-color: rgb(255, 255, 255);
+    padding: 4rem;
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    align-self: stretch;
+    border-radius: .5rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 .5em;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 200;
+    margin: 0 0 .5em;
+    color: var(--gray-tint-20);
+}
+
+hgroup {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+a,
+p {
+    font-size: .8125rem;
+}
+
+form {
+    width: 100%;
+}
+
+form > div {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+label {
+    color: var(--gray-tint-40);
+    position: absolute;
+    left: 0;
+    top: .25rem;
+    transition: all .3s;
+    cursor: text;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid var(--gray-tint-40);
+    height: 2.25rem;
+    width: 100%;
+    outline: none;
+    transition: border-color .3s ease;
+}
+
+input:focus {
+    border-color: var(--gray-base);
+}
+
+input:focus + label,
+input:valid + label {
+    transform: translateY(-1.25rem);
+    font-size: .8125rem;
+    color: var(--gray-base);
+}
+
+a, .link {
+    color: var(--accent-base);
+    transition: color .3s ease-in-out;
+    text-decoration: none;
+}
+
+a:hover, .link:hover {
+    color: var(--gray-base);
+}
+
+#forgot-pwd {
+    display: block;
+    margin-bottom: 4rem;
+}
+
+.button {
+    width: 100%;
+    background-color: var(--gray-base);
+    appearance: none;
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 100px;
+    font-weight: bold;
+    transition: background-color .3s;
+}
+
+.button:hover {
+    background-color: var(--gray-tint-10);
+}
+.button:hover .button--text {
+    transform: translate3d(0, -0.1rem, 0);
+    text-shadow: 0 0.2rem 0.2rem var(--gray-tint-20);
+    transition: all .3s;
+}
+
+.button:active {
+    transform: translate3d(3px, 3px, 0);
+}
+
+/* Air */
+.button--loader{
+    display: flex;
+    gap: 0.25rem;
+    top: calc(50% - 0.4rem);
+}
+.button--loader div{
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: var(--gray-tint-40);
+    border-radius: 50%;
+    animation:  1.5s infinite ease-in-out scaleUp;
+}
+.button--loader div:nth-child(2){
+    animation-delay: 0.4s;
+}
+.button--loader div:nth-child(3){
+    animation-delay: 0.6s;
+}
+
+.button{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 3.5rem;
+}
+.button--loader{
+    display: none;
+}
+.button.loading .button--text{
+    display: none;
+}
+.button.loading .button--loader{
+    display: flex;
+}
+.button.success{
+    background-color: var(--contextual-success-base);
+}
+@keyframes scaleUp {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
