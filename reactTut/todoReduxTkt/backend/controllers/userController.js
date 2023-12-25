@@ -9,11 +9,12 @@ const authUser = asyncHandler(async (req, res) => {
         res.status(400);
         throw new Error('Please fill out all fields');
     }
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.findUniqueOrThrow({
         where: {
             email: input.email,
         },
     })
+    console.log(user)
     if (user && (await bcrypt.compare(input.password, user.password))) {
         res.status(200).json(
             {

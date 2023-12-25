@@ -12,7 +12,7 @@ function Todos( {todo} ) {
   return (
     <>
         <div
-          className={`text-white flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300   mb-3
+          className={`text-white flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300 mt-3  mb-3
           }`}
         >
           <input
@@ -20,7 +20,7 @@ function Todos( {todo} ) {
             className={`border text-white outline-none w-full bg-transparent rounded-lg ${
               isTodoEditable ? "border-gray-500/10 px-2" : "border-transparent"
             }`}
-            value={(isTodoEditable ? todoMsg : todo.text)}
+            value={(isTodoEditable ? todoMsg : todo.title)}
             onChange={(e) => setTodoMsg(e.target.value)}
             readOnly={!isTodoEditable}
           />

@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../feature/user/userSlice";
+import axios from "axios";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const userInfo = useSelector(state => state.user.users);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -17,8 +25,32 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your login logic here
-    console.log(e);
+    setLoading(true);
+    console.log(userInfo)
+    axios.post('http://localhost:8000/api/users/login', {
+      email,
+      password
+    })
+    .then(res => {
+      console.log(res.data)
+      dispatch(addUser(res.data));
+      localStorage.setItem('userInfo', JSON.stringify(res.data));
+      navigate('/todos');
+    })
+    .catch(err => {
+      throw new `Login error: ${err}`;
+    })
+    .finally(() => {
+      setLoading(false);
+    });
   };
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/todos');
+    }
+  }
+  , [userInfo, navigate]);
+
   return (
     <div className="container">
       <div className="well">
