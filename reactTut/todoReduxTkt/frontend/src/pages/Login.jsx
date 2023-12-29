@@ -49,7 +49,7 @@ const Login = () => {
       navigate('/todos');
     }
   }
-  , [userInfo, navigate]);
+  , [userInfo]);
 
   return (
     <div className="container">

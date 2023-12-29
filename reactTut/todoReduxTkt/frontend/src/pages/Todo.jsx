@@ -9,7 +9,10 @@ import axios from "axios";
 function Todo() {
   const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
-  const userInfo = useSelector((state) => state.user.users);
+  const userReduxState = useSelector((state) => state.user.users);
+  const userInfo = userReduxState
+    ? userReduxState
+    : JSON.parse(localStorage.getItem("userInfo"));
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -17,36 +20,41 @@ function Todo() {
     if (!userInfo) {
       navigate("/login");
     }
-    
-    axios.post('http://localhost:8000/api/todos', null, {
-    headers: {
-      Authorization: `Bearer ${userInfo.token}`
-    }
-  })
-    .then(response => {
+
+   if(todos.length === 0) {
+    axios
+    .post("http://localhost:8000/api/todos", null, {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    })
+    .then((response) => {
       // Handle the response
-      console.log(response.data)
+      console.log(response.data);
       setTodos(response.data);
     })
-    .catch(error => {
+    .catch((error) => {
       // Handle the error
-      throw new `Error: ${error}`;
+      throw new `Error: ${error}`();
     })
     .finally(() => {
       setLoading(false);
     });
-    
-  }, [navigate, userInfo]);
-  
+  } else {
+    setTodos(todos);
+  }
+  setLoading(false);
+  }, [todos]);
 
   return (
     <>
       <AddTodo />
       <h2 className="text-white py-1 my-3 text-3xl">Todos</h2>
-      {loading ? 
+      {loading ? (
         <div className="text-white">Loading...</div>
-      :
-      todos.map((todo) => <Todos key={todo.id} todo={todo} />)}
+      ) : (
+        todos.map((todo) => <Todos key={todo.id} todo={todo} />)
+      )}
     </>
   );
 }

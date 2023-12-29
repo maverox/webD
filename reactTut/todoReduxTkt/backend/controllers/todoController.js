@@ -96,7 +96,6 @@ const updateTodo = asyncHandler(async (req, res) => {
         res.status(404);
         throw new Error('No todos found');
     }
-    console
     todo = {...todo, title, completed };
     delete todo.id;
     const updatedTodo = await prisma.todo.update({
